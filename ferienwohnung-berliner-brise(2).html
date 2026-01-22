@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Berliner Brise - Ferienwohnung in Berlin-Charlottenburg</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        .hero {
+            background: #c8d9b8;
+            color: #333;
+            padding: 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-image {
+            width: 100%;
+            height: 70vh;
+            min-height: 500px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(200, 217, 184, 0.95) 0%, rgba(200, 217, 184, 0.7) 50%, transparent 100%);
+            padding: 60px 20px 40px;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(255,255,255,0.3);
+        }
+
+        .hero p {
+            font-size: 1.3em;
+            margin-bottom: 30px;
+            opacity: 0.95;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: white;
+            color: #6b8e5a;
+            padding: 15px 40px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1em;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section {
+            padding: 80px 20px;
+        }
+
+        .section h2 {
+            font-size: 2.5em;
+            margin-bottom: 40px;
+            text-align: center;
+            color: #6b8e5a;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-align: center;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+
+        .feature-icon {
+            font-size: 3em;
+            margin-bottom: 15px;
+        }
+
+        .feature-card h3 {
+            color: #6b8e5a;
+            margin-bottom: 15px;
+            font-size: 1.4em;
+        }
+
+        .gallery {
+            background: #f8f9fa;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 20px;
+            margin-top: 40px;
+        }
+
+        .gallery-item {
+            height: 250px;
+            background: #ddd;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #666;
+            font-size: 1.2em;
+            transition: transform 0.3s;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.05);
+        }
+
+        .location {
+            background: linear-gradient(135deg, #c8d9b8 0%, #b5c9a0 100%);
+            color: #333;
+        }
+
+        .location h2 {
+            color: #333;
+        }
+
+        .location-highlights {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .location-item {
+            background: rgba(255,255,255,0.4);
+            padding: 25px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.6);
+        }
+
+        .location-item h3 {
+            margin-bottom: 10px;
+            font-size: 1.3em;
+        }
+
+        .contact {
+            background: white;
+            text-align: center;
+        }
+
+        .contact-info {
+            max-width: 600px;
+            margin: 40px auto;
+            padding: 40px;
+            background: #f8f9fa;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .contact-info p {
+            font-size: 1.2em;
+            margin: 15px 0;
+        }
+
+        .contact-info strong {
+            color: #6b8e5a;
+        }
+
+        footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2em;
+            }
+            
+            .hero p {
+                font-size: 1.1em;
+            }
+            
+            .section h2 {
+                font-size: 2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="hero">
+        <img src="terrasse.jpg" alt="Terrasse der Berliner Brise mit Grünblick" class="hero-image">
+        <div class="hero-overlay">
+            <div class="hero-content">
+                <h1>🌿 Berliner Brise</h1>
+                <p>Ihre gemütliche 2-Zimmer-Ferienwohnung in Berlin-Charlottenburg</p>
+                <a href="#kontakt" class="cta-button">Jetzt anfragen</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="container">
+            <h2>Ihre Unterkunft</h2>
+            <p style="text-align: center; font-size: 1.2em; max-width: 800px; margin: 0 auto 40px;">
+                Willkommen in der "Berliner Brise" - Ihrer perfekten Ausgangsbasis für einen unvergesslichen Berlin-Aufenthalt. 
+                Unsere 2-Zimmer-Ferienwohnung bietet Ihnen Komfort, Ruhe und eine grüne Oase mitten in der Stadt.
+            </p>
+            
+            <div class="features">
+                <div class="feature-card">
+                    <div class="feature-icon">🏠</div>
+                    <h3>2 Zimmer</h3>
+                    <p>Geräumige und gemütlich eingerichtete Wohnung mit allem, was Sie für einen angenehmen Aufenthalt benötigen.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🌳</div>
+                    <h3>Terrasse & Grünblick</h3>
+                    <p>Genießen Sie Ihren Morgen-Kaffee oder entspannen Sie abends auf der gemütlichen Terrasse mit Blick ins Grüne.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🚇</div>
+                    <h3>Top-Lage</h3>
+                    <p>S-Bahnhof Pichelsberg - perfekte Anbindung an alle Sehenswürdigkeiten Berlins.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Vollausgestattet</h3>
+                    <p>Küche, Bad, WLAN und alles, was Sie für einen komfortablen Aufenthalt brauchen.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section gallery">
+        <div class="container">
+            <h2>Impressionen</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="wohnzimmer.jpg" alt="Wohnzimmer" style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+                <div class="gallery-item">
+                    <img src="schlafzimmer.jpg" alt="Schlafzimmer" style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+            </div>
+            <p style="text-align: center; margin-top: 30px; color: #666;">
+                <em>Speichern Sie Ihre Zimmerfotos als "wohnzimmer.jpg" und "schlafzimmer.jpg" im gleichen Ordner wie die Website!</em>
+            </p>
+        </div>
+    </div>
+
+    <div class="section location">
+        <div class="container">
+            <h2>Perfekte Lage</h2>
+            <p style="text-align: center; font-size: 1.2em; margin-bottom: 40px; opacity: 0.95;">
+                Berlin-Charlottenburg, S-Bahnhof Pichelsberg (S3/S9)
+            </p>
+            
+            <div class="location-highlights">
+                <div class="location-item">
+                    <h3>🏟️ Olympiastadion</h3>
+                    <p>Nur wenige Minuten entfernt - ideal für Sport-Events und Konzerte</p>
+                </div>
+                
+                <div class="location-item">
+                    <h3>🎭 Waldbühne</h3>
+                    <p>Die legendäre Open-Air-Bühne in unmittelbarer Nähe</p>
+                </div>
+                
+                <div class="location-item">
+                    <h3>🏢 Messe Berlin</h3>
+                    <p>Perfekt für Geschäftsreisende und Messebesucher</p>
+                </div>
+                
+                <div class="location-item">
+                    <h3>🌆 Innenstadt</h3>
+                    <p>Schnelle S-Bahn-Verbindung zu allen Berliner Highlights</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section contact" id="kontakt">
+        <div class="container">
+            <h2>Kontakt & Buchung</h2>
+            <div class="contact-info">
+                <p><strong>Kristina Hack</strong></p>
+                <p><strong>Volker Röhrs</strong></p>
+                <p style="margin-top: 30px;">📍 Sarkauer Allee 1H<br>14053 Berlin</p>
+                <p>📞 <strong>mobil:</strong> 0177 2157337</p>
+                <p>✉️ <strong>berlinbrise@web.de</strong></p>
+                
+                <div style="margin-top: 40px;">
+                    <a href="mailto:berlinbrise@web.de" class="cta-button">Jetzt Anfrage senden</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Berliner Brise - Ferienwohnung | Kristina Hack & Volker Röhrs</p>
+    </footer>
+</body>
+</html>
